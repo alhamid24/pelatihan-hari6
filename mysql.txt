@@ -1,0 +1,39 @@
+create schema akademik; 
+
+create table akademik.mahasiswa(
+	id integer,
+	nim varchar(20),
+	nama varchar(50),
+	jurusan varchar(50),
+	tanggal_lahir date 
+);
+
+insert into akademik.mahasiswa(
+	id, nim, nama, jurusan, tanggal_lahir
+) values
+	(2, '002', 'abi', 'teknik mesin', '2005-11-23'),
+	(3, '003', 'aceng', 'teknik informatika', '1992-12-02'),
+	(4, '004', 'hamid', 'teknik mesin', '2009-01-24'),
+	(5, '005', 'yasa', 'database', '2004-05-05')
+
+select * from akademik.mahasiswa order by id asc;
+
+select * from akademik.mahasiswa order by id desc;
+
+select * from akademik.mahasiswa where jurusan = 'teknik mesin'
+
+select * from akademik.mahasiswa where id = 35 or jurusan = 'teknik mesin'
+
+select * from akademik.mahasiswa where tanggal_lahir >= '2009-01-24'
+
+select * from akademik.mahasiswa where nama like '%ha%'
+
+update akademik.mahasiswa set nama= 'wildan', jurusan='desain grafis' where id= 3;
+
+update akademik.mahasiswa set id = 35 where id= 1;
+
+delete from akademik.mahasiswa where id= 4;
+
+delete from akademik.mahasiswa where id in (2,3);
+
+alter table akademik.mahasiswa add primary key (id);
